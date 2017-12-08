@@ -1,0 +1,39 @@
+<h1>Listado de Rondas</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>#Ronda</th>
+      <th>Color de la Ruleta</th>
+      <th>Jugador</th>
+      <th>Color Jugador</th>
+      <th>Dinero Apostado </th>
+      <th>Resultado</th>
+      <th>Dinero Ganado</th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+
+
+  <tbody>
+    <% @player_rounds.each do |player_round| %>
+      <tr>
+        <td><%= player_round.round.id %>|</td>
+        <td><%= player_round.round.colour.upcase  %>|</td>
+
+          <td><%= player_round.player.first_name%>|</td>
+          <td><%= player_round.player_colour_picked%>|</td>
+          <td><%= (player_round.player_money_bet).round(2)%>|</td>
+
+          <td><%= player_round.game.result(player_round.round,player_round.player_colour_picked) %>|</td>
+          <td><%= (player_round.player_money_bet).round(2) %>|</td>
+
+    <% end %>
+  </tbody>
+</table>

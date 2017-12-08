@@ -1,0 +1,33 @@
+<h1>Listado de jugadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Rut</th>
+      <th>Dinero</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.first_name %></td>
+        <td><%= player.last_name %></td>
+        <td><%= player.rut %></td>
+        <td><%= player.money.round(2) %></td>
+        <td><%= link_to 'Ver', player %></td>
+        <td><%= link_to 'Editar', edit_player_path(player) %></td>
+        <td><%= link_to 'Eliminar', player, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Jugador', new_player_path %>

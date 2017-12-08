@@ -1,0 +1,13 @@
+es:
+  activerecord:
+    # Nombres de Modelos
+    models:
+      # Players
+      player:
+        one: "Jugador"
+        other: "Jugadores"
+  attributes:
+    first_name: Nombre
+    last_name: Apellido
+    money: Dinero
+
